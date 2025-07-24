@@ -1,0 +1,111 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; */
+    box-shadow: 0 4px 10px rgb(234, 201, 155) !important;
+    z-index: 1000;
+    /* border-bottom: 3px solid rgba(0, 0, 0, 0.1); */
+    border-bottom: 3px solid rgb(234, 201, 155);
+}
+
+.hero-content h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #B4A78C;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    /* color: black; */
+    color: white;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: #B4A78C;
+}
+
+.current-user {
+    font-weight: bold;
+    /* color: #333; */
+    color: #f5ecec;
+    cursor: pointer;
+}
+
+.profile-icon {
+    margin-right: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    min-width: 120px;
+    margin-top: 80px;
+    margin-left: 190px;
+    text-align: center;
+    color: black
+}
+
+.dropdown-content a {
+    color: #007BFF;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: #0056b3;
+}
+
+footer {
+    flex: 0 1 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1 !important;
+    width: 100%;
+    position: relative;
+}
+
+.visual-name {
+    display: flex;
+    flex-direction: row;
+}

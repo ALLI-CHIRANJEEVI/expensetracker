@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/addExpense.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_expense">Add Expense</a></li>
+                <li><a href="/view_expense">View Expenses</a></li>
+                <li><a href="/visualization">View Visualization</a></li><!-- Added Planning Link -->
+                <li class="dropdown">
+                    {% if username %}
+                    <span class="profile-icon">&#128100;</span> <!-- Profile icon -->
+                    <span class="current-user">{{ username }}</span>
+                    <div class="dropdown-content">
+                        <a href="/logout" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-log-out"></span> Log out
+                        </a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <ul class="flashes"
+            style="color: rgb(74, 74, 191);  width: 100%;font-size: larger; list-style-type: none; text-align: center;">
+            {% for category, message in messages %}
+            <li class="flash {{ category }}" style="text-decoration: none;">{{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <section class="add-expense-form">
+            <h2>Expense Planning</h2>
+            <form action="{{ url_for('planning') }}" method="post">
+                <div class="form-group">
+                    <label for="salary">Monthly Salary:</label>
+                    <input type="number" id="salary" name="salary" step="0.01" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="savings">Desired Savings:</label>
+                    <input type="number" id="savings" name="savings" step="0.01" required>
+                </div>
+                <br>
+                <button type="submit">Plan</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

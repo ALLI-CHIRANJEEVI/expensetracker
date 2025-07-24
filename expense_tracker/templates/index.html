@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="static/css/header.css">
+
+
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/add_expense">Add Expense</a></li>
+                <li><a href="/view_expense">View Expenses</a></li>
+                <li><a href="/visualization">View Visualization</a></li>
+                <li><a href="/planning">Planning</a></li> <!-- Added Planning Link -->
+                <li class="dropdown">
+                    {% if username %}
+                    <span class="profile-icon">&#128100;</span> <!-- Profile icon -->
+                    <span class="current-user">{{ username }}</span>
+                    <div class="dropdown-content">
+                        <a href="/logout" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-log-out"></span> Log out
+                        </a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="features">
+            <h1>Manage Your Finances with Ease</h1>
+            
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <img id="add-expense-img" src="static/images/add-exp.png" alt="Add Expense Icon">
+                    <h2>Effortlessly Add Expenses</h2>
+                    <p>Track your income and spending with ease.</p>
+                </div>
+                <div class="feature-card">
+                    <img id="visualize-img" src="static/images/visualize.jpg" alt="Visualize Icon">
+                    <h2>Gain Valuable Insights</h2>
+                    <p>Visualize your spending patterns and identify areas for improvement.</p>
+                </div>
+                <div class="feature-card">
+                    <img id="budgeting-img" src="static/images/add-exp.png" alt="Budgeting Icon">
+                    <h2>Plan your Expenses</h2>
+                    <p>Create budgets and stay on track towards your financial goals.</p>
+                </div>
+            </div>
+            <script>
+                document.getElementById("add-expense-img").addEventListener("click", function () {
+                    window.location.href = "/add_expense";
+                });
+
+                document.getElementById("visualize-img").addEventListener("click", function () {
+                    window.location.href = "/visualization";
+                });
+
+                document.getElementById("budgeting-img").addEventListener("click", function () {
+                    window.location.href = "/planning";
+                });
+            </script>
+
+        </section>
+
+        <section class="benefits">
+            <h2>The Benefits of Using Our Expense Tracker</h2>
+            <p>Here's how our expense tracker can help you:</p>
+            <ul>
+                <li>Gain a clear understanding of your spending habits.</li>
+                <li>Identify areas where you can save money.</li>
+                <li>Make informed financial decisions.</li>
+                <li>Reach your financial goals faster.</li>
+            </ul>
+            <img src="static/images/benefits-chart.png" alt="Benefits Chart">
+        </section>
+    </main>
+
+    <footer class="footer" style="background-color:f1f1f1 ;">
+        <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

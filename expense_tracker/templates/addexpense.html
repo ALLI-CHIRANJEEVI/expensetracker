@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="static/css/addExpense.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var today = new Date();
+            var day = String(today.getDate()).padStart(2, '0');
+            var month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            var year = today.getFullYear();
+    
+            var formattedToday = year + '-' + month + '-' + day;
+            document.getElementById('date').setAttribute('max', formattedToday);
+        });
+    </script>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/view_expense">View Expenses</a></li>
+                <li><a href="/visualization">View Visualization</a></li>
+                <li><a href="/planning">Planning</a></li> <!-- Added Planning Link -->
+                <li class="dropdown">
+                    {% if username %}
+                    <span class="profile-icon">&#128100;</span> <!-- Profile icon -->
+                    <span class="current-user">{{ username }}</span>
+                    <div class="dropdown-content">
+                        <a href="/logout" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-log-out"></span> Log out
+                        </a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <ul class="flashes"
+            style="color: rgb(74, 74, 191); width: 100%;font-size: larger; list-style-type: none; text-align: center;">
+            {% for category, message in messages %}
+            <li class="flash {{ category }}" style="text-decoration: none;">{{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <section>
+            <section class="add-expense-form">
+                <h2>Add Expense</h2>
+                <form action="{{ url_for('add_expense') }}" method="POST">
+                    <div class="form-group">
+                        <label for="salary">Salary:</label>
+                        <input type="text" id="salary" name="salary" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="food_expenses">Food Expenses:</label>
+                        <input type="text" id="food_expenses" name="food_expenses" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel_expenses">Travel Expenses:</label>
+                        <input type="text" id="travel_expenses" name="travel_expenses" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="accommodation">Accommodation:</label>
+                        <input type="text" id="accommodation" name="accommodation" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="other_expenses">Other Expenses:</label>
+                        <input type="text" id="other_expenses" name="other_expenses" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" step="0.01" required>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

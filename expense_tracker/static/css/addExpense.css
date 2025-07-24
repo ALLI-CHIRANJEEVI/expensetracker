@@ -1,0 +1,182 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f2ee;
+    overflow-x: hidden;
+}
+
+.add-expense-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+
+
+}
+
+.add-expense-form h2 {
+    /* margin-bottom: 20px; */
+    color: #333333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button[type="submit"] {
+    padding: 15px 35px;
+    background-color: #abdbac;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: max-content;
+    margin: auto;
+
+}
+
+button[type="submit"]:hover {
+    background-color: #abdbac;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Tables (Optional) */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.table-parent {
+    width: 100%;
+
+    padding: 20px;
+}
+
+.table-parent h1 {
+    width: 90%;
+    margin: 30px auto;
+
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Additional considerations */
+.highlight {
+    /* Class for highlighting elements (add styles as needed) */
+    background-color: #f0f0f0;
+    /* Light gray for highlighting */
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-container .cancel {
+    background-color: rgb(218, 131, 131);
+}
+
+.button-container .cancel:hover {
+    background-color: rgb(167, 23, 23);
+}
+
+.button-container .update:hover {
+    background-color: rgb(50, 164, 50);
+}
+
+.delete {
+    background-color: rgb(218, 131, 131);
+}
+
+.delete:hover {
+    background-color: rgb(167, 23, 23);
+}
+
+.expense-planning-result {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.expense-planning-result h1 {
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+}
+
+.expense-planning-result p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555555;
+    font-weight: bold;
+    text-align: center;
+}
+
+.expense-planning-result a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.expense-planning-result a:hover {
+    background-color: #0056b3;
+}

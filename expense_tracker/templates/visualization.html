@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="static/css/header.css">
+
+    <title>Expense Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/script.js"></script>
+
+
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_expense">Add Expense</a></li>
+                <li><a href="/view_expense">View Expenses</a></li>
+
+                <li><a href="/planning">Planning</a></li> <!-- Added Planning Link -->
+                <li class="dropdown">
+                    {% if username %}
+                    <span class="profile-icon">&#128100;</span> <!-- Profile icon -->
+                    <span class="current-user">{{ username }}</span>
+                    <div class="dropdown-content">
+                        <a href="/logout" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-log-out"></span> Log out
+                        </a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Expense Visualization</h1>
+    <main>
+
+        <section class="features">
+            <!-- Pie Chart -->
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h2>Current Month Overview</h2>
+                    <canvas id="expensePieChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature-cards">
+                <!-- Bar Graph -->
+                <div class="feature-card">
+                    <h2>Monthly Comparison</h2>
+                    <canvas id="expenseBarGraph" width="800" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Call the drawBarGraph function with the data -->
+    <!-- <script>
+        // Assuming you have a variable named 'expenseData' containing the necessary data
+        drawBarGraph(expenseData);
+    </script> -->
+</body>
+
+</html>

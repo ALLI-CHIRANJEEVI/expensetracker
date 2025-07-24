@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Signup</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="static/css/header.css">
+
+</head>
+
+<body class="login">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+    </header>
+    <main>
+
+
+
+        <section>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            <ul class="flashes"
+                style="color: rgb(74, 74, 191); width: 100%;font-size: larger; list-style-type: none; text-align: center;">
+                {% for category, message in messages %}
+                <li class="flash {{ category }}" style="text-decoration: none;">{{ message }} </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <h2>Signup</h2>
+            <form action="/signup" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Signup</button>
+            </form>
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

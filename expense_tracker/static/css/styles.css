@@ -1,0 +1,162 @@
+/* General styles */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+}
+
+
+
+.main-container {
+    /* New container for layout */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensures container takes up full viewport height */
+    align-items: center;
+    /* Center elements vertically within container */
+    justify-content: space-between;
+    /* New property for horizontal centering */
+}
+
+
+/* Main */
+main {
+    flex: 1;
+    /* Main content takes up remaining space */
+}
+
+section {
+    border: none;
+    /* Remove borders for a cleaner look */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* White background for sections */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.hero {
+    background-position: center;
+    background-size: cover;
+}
+
+button[type="submit"] {
+    background-color: #fff;
+    /* White button background */
+    border: 1px solid #ddd;
+    /* Light border */
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #f5f5f5;
+    /* Slight background change on hover */
+}
+
+/* Forms (Optional) */
+.form-group {
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* Tables (Optional) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Additional considerations */
+.highlight {
+    /* Class for highlighting elements (add styles as needed) */
+    background-color: #f0f0f0;
+    /* Light gray for highlighting */
+}
+
+
+.feature-card img {
+    width: 140px;
+    /* Adjust width and height as needed */
+    height: 140px;
+}
+
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap if needed */
+}
+
+.feature-card {
+    flex: 1 0 auto;
+    /* Make each card flexible and fill space */
+    margin: 10px;
+    /* Add some margin for spacing */
+}
+
+/* Form styles */
+/* Form styles */
+.add-expense-form {
+    background-color: #fff;
+    /* White background for form */
+    border: 1px solid #ddd;
+    /* Light border */
+    border-radius: 4px;
+    /* Rounded corners */
+    padding: 40px;
+    width: 500px;
+    /* Set form width */
+    margin: 0 auto;
+    /* Center the form horizontally */
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    /* Display labels on separate lines */
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"] {
+    width: 40%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #abdbac;
+    /* Green background color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

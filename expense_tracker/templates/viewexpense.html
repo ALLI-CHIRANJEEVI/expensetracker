@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/addExpense.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <title>View Expenses</title>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expense Tracker</h1>
+            <!-- <p>Take control of your finances with our easy-to-use expense tracker.</p> -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_expense">Add Expense</a></li>
+                <li><a href="/visualization">View Visualization</a></li>
+                <li><a href="/planning">Planning</a></li> <!-- Added Planning Link -->
+                <li class="dropdown">
+                    {% if username %}
+                    <span class="profile-icon">&#128100;</span> <!-- Profile icon -->
+                    <span class="current-user">{{ username }}</span>
+                    <div class="dropdown-content">
+                        <a href="/logout" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-log-out"></span> Log out
+                        </a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <ul class="flashes"
+            style="color: rgb(74, 74, 191); width: 100%;font-size: larger; list-style-type: none; text-align: center;">
+            {% for category, message in messages %}
+            <li class="flash {{ category }}" style="text-decoration: none;">{{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <section class="table-parent">
+            <h1>Your Expenses</h1>
+
+            <table>
+                <tr>
+                    <th>Salary</th>
+                    <th>Food Expenses</th>
+                    <th>Travel Expenses</th>
+                    <th>Accommodation</th>
+                    <th>Other Expenses</th>
+                    <th>Date</th>
+                    <th>Savings</th>
+                    <th>Action</th> <!-- New column for delete and update actions -->
+                </tr>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.salary }}</td>
+                    <td>{{ expense.food_expenses }}</td>
+                    <td>{{ expense.travel_expenses }}</td>
+                    <td>{{ expense.accommodation }}</td>
+                    <td>{{ expense.other_expenses }}</td>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.savings }}</td>
+                    <td>
+                        <form action="/delete_expense" method="post" style="display:inline;">
+                            <input type="hidden" name="expense_id" value="{{ expense.id }}">
+                            <button type="submit" style="background: rgb(189, 113, 113);">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>
